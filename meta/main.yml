@@ -2,6 +2,8 @@ galaxy_info:
   author: your name
   description: your role description
   company: your company (optional)
+  role_name: my_name  # if absent directory name hosting role is used instead
+  namespace: my_galaxy_namespace  # if absent, author is used instead
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
@@ -48,7 +50,7 @@ galaxy_info:
     #       Maximum 20 tags per role.
 
 dependencies:
-  - src: https://github.com/diranetafen/ansible-role_nginx.git
+  - src: https://github.com/Aurelie-Kamgang/ansible-expert-role-nginx.git
     scm: git
     version: main
     name: nginx

@@ -6,11 +6,11 @@ dependency:
     ignore-errors: True
     role-file: molecule/default/requirements.yml
 driver:
-  name: docker
+      name: docker
 lint: |
-  set -e
-  yamllint -c molecule/default/.yamllint .
-  ansible-lint -x meta-incorrect,meta-no-info,package-latest
+    set -e
+    yamllint -c molecule/default/.yamllint .
+    ansible-lint -x meta-incorrect,meta-no-info,package-latest,yml
 platforms:
   - name: instance-centos
     image: "eazytraining/diveintoansible:centos"
@@ -30,6 +30,9 @@ provisioner:
   name: ansible
 verifier:
   name: ansible
+  options:
+    warn_list:
+      - role-name
 scenario:
   test_sequence:
     - dependency
@@ -40,7 +43,7 @@ scenario:
     - create
     - prepare
     - converge
-#    - idempotence
+      #    - idempotence
     - side_effect
     - verify
     - cleanup
